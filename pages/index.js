@@ -147,6 +147,7 @@ export default function Home() {
     <Container>
       <Bg>
         {musicas.map((musica, index) => (
+          // eslint-disable-next-line react/no-array-index-key
           <Musica key={index} x={musica.x} y={musica.y}>
             <span>
               {musica.nome}
