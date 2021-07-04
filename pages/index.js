@@ -25,12 +25,12 @@ const Musica = styled.div`
   top: ${(props) => props.y}vh;
   left: ${(props) => props.x}vw;
 
-  font-size: 2rem;
-  font-weight: 700;
-  background: white;
-  border-radius: 25px;  
-  padding: 10px;
-  font-family: sans-serif;
+  font-size: 1.4rem;
+  border-radius: 25px;
+  padding: 0 15px;
+  margin: 0;
+  font-family: 'slkscrb';
+  font-weight: 100;
 
   text-transform: uppercase;
 
@@ -40,79 +40,52 @@ const Musica = styled.div`
   -moz-user-select: none;
   -ms-user-select: none;
 
-  box-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-    -0.025em -0.05em 0 rgba(0, 255, 0, 0.75),
-    0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
+  ::before{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: #a4715a;
+  }  
+  ::after{
+    content: '';
+    position: absolute;
+    top: -2px;
+    left: -2px;
+    right: -2px;
+    bottom: -2px;
+    background-color: #a4715a;
+    filter: blur(40px);
+  }
+
+  p{
+    position: relative;
+    span {
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+    span:first-child {
+      clip-path: polygon(0 0, 100% 0, 100% 75%, 0 45%);
+      transform: translate(-0.045em, -0.0425em);
+      opacity: 0.8;
+    }
+    span:last-child {
+      clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
+      transform: translate(0.0425em, 0.045em);
+      opacity: 0.8;
+    }
+  }
 
   :hover{
-    animation: glitchBox 500ms infinite;
-  }
-  @keyframes glitchBox {
-    0% {
-      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: 0.1em 0 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.05em 0 rgba(0, 255, 0, 0.75),
-        -0.05em 0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    14% {
-      text-shadow: 0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em 0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: 0.1em 0 0 rgba(255, 0, 0, 0.75),
-        -0.1em -0.05em 0 rgba(0, 255, 0, 0.75),
-        -0.05em 0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    15% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: -0.1em -0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0.05em 0 rgba(0, 255, 0, 0.75),
-        -0.1m -0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    49% {
-      text-shadow: -0.05em -0.025em 0 rgba(255, 0, 0, 0.75),
-        0.025em 0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: -0.1em -0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0.05em 0 rgba(0, 255, 0, 0.75),
-        -0.1em -0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    50% {
-      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: 0.05em 0.1em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0 0 rgba(0, 255, 0, 0.75), 0 -0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    99% {
-      text-shadow: 0.025em 0.05em 0 rgba(255, 0, 0, 0.75),
-        0.05em 0 0 rgba(0, 255, 0, 0.75), 0 -0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: 0.05em 0.1em 0 rgba(255, 0, 0, 0.75),
-        0.1em 0 0 rgba(0, 255, 0, 0.75), 0 -0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-    100% {
-      text-shadow: -0.025em 0 0 rgba(255, 0, 0, 0.75),
-        -0.025em -0.025em 0 rgba(0, 255, 0, 0.75),
-        -0.025em -0.05em 0 rgba(0, 0, 255, 0.75);
-      box-shadow: -0.05em 0 0 rgba(255, 0, 0, 0.75),
-        -0.05em -0.05em 0 rgba(0, 255, 0, 0.75),
-        -0.05em -0.1em 0 rgba(0, 0, 255, 0.75);
-    }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *,
-    ::before,
-    ::after {
-      animation-delay: -1ms !important;
-      animation-duration: 1ms !important;
-      animation-iteration-count: 1 !important;
-      background-attachment: initial !important;
-      scroll-behavior: auto !important;
-      transition-duration: 0s !important;
-      transition-delay: 0s !important;
+    z-index: 100;
+    transform: scale(1.1);
+    transition: 0.3s;
+    
+    ::before{
+      background-color: #f2923c;
     }
   }
 `;
@@ -120,11 +93,31 @@ const Musica = styled.div`
 const musics = [
   {
     url: '/moleca.mp3',
-    nome: 'Musica1',
+    nome: 'Tapera córrego',
   },
   {
     url: '/moleca.mp3',
-    nome: 'Musica2',
+    nome: 'Tapera monturo',
+  },
+  {
+    url: '/moleca.mp3',
+    nome: 'Tapera funk',
+  },
+  {
+    url: '/moleca.mp3',
+    nome: 'Tapera barato fundamental',
+  },
+  {
+    url: '/moleca.mp3',
+    nome: 'Tapera arpejadores',
+  },
+  {
+    url: '/moleca.mp3',
+    nome: 'Tudo foi feito pra gnt lacrar remix',
+  },
+  {
+    url: '/moleca.mp3',
+    nome: 'Tapera voz',
   },
 ];
 
@@ -149,9 +142,15 @@ export default function Home() {
         {musicas.map((musica, index) => (
           // eslint-disable-next-line react/no-array-index-key
           <Musica key={index} x={musica.x} y={musica.y}>
-            <span>
+            <p>
+              <span aria-hidden="true">
+                {musica.nome}
+              </span>
               {musica.nome}
-            </span>
+              <span aria-hidden="true">
+                {musica.nome}
+              </span>
+            </p>
           </Musica>
         ))}
       </Bg>
