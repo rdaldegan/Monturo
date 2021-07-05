@@ -1,8 +1,11 @@
 import React from 'react';
 import { createGlobalStyle, ThemeProvider } from 'styled-components';
 
+import SongsProvider from '../src/context/SongContext';
+
 import Header from '../src/components/Header';
 import Footer from '../src/components/Footer';
+import Player from '../src/components/Player';
 
 const GlobalStyle = createGlobalStyle`
   body {
@@ -24,9 +27,12 @@ export default function App({ Component, pageProps }) {
     <>
       <GlobalStyle />
       <ThemeProvider theme={theme}>
-        <Header />
-        <Component {...pageProps} />
-        <Footer />
+        <SongsProvider>
+          <Header />
+          <Component {...pageProps} />
+          <Player />
+          <Footer />
+        </SongsProvider>
       </ThemeProvider>
     </>
   );

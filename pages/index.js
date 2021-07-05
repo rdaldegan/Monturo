@@ -1,5 +1,10 @@
+/* eslint-disable react/no-array-index-key */
 import styled from 'styled-components';
 import React, { useEffect, useState } from 'react';
+
+import { FaRedoAlt } from 'react-icons/fa';
+
+import { useSongs } from '../src/context/SongContext';
 
 const Container = styled.div`
   overflow: hidden;
@@ -17,6 +22,24 @@ const Bg = styled.div`
   width: 100%;
   min-height: 100vh;
   background-color: rgba(0, 0, 0, 0.75);
+
+
+  .reRandom{
+    background: none;
+    border: none;
+    margin: 5px;
+
+    .icon{
+      font-size: 30px;
+      color: #a4715a;
+      cursor: pointer;
+      
+      transition: 0.7s;
+      :hover{
+        transform: rotate(360deg);
+      }
+    }
+  }
 `;
 
 const Musica = styled.div`
@@ -90,41 +113,16 @@ const Musica = styled.div`
   }
 `;
 
-const musics = [
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera córrego',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera monturo',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera funk',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera barato fundamental',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera arpejadores',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tudo foi feito pra gnt lacrar remix',
-  },
-  {
-    url: '/moleca.mp3',
-    nome: 'Tapera voz',
-  },
-];
-
 export default function Home() {
-  const [musicas, setMusicas] = useState(musics);
+  const {
+    musicas,
+    setMusicas,
+    setMusicaAtual,
+    setIsPlaying,
+    setIsOpen,
+  } = useSongs();
 
-  useEffect(() => {
+  function randomize() {
     const mus = [...musicas];
     for (let i = 0; i < musicas.length; i += 1) {
       mus[i] = {
@@ -134,14 +132,37 @@ export default function Home() {
       };
     }
     setMusicas(mus);
+  }
+
+  function playSong(musica) {
+    setIsPlaying(true);
+    setIsOpen(true);
+    setMusicaAtual(musica);
+  }
+
+  useEffect(() => {
+    randomize();
   }, []);
 
   return (
     <Container>
       <Bg>
+        <button
+          type="button"
+          className="reRandom"
+          onClick={() => randomize()}
+        >
+          <FaRedoAlt
+            className="icon"
+          />
+        </button>
         {musicas.map((musica, index) => (
-          // eslint-disable-next-line react/no-array-index-key
-          <Musica key={index} x={musica.x} y={musica.y}>
+          <Musica
+            key={index}
+            x={musica.x}
+            y={musica.y}
+            onClick={() => playSong(musica)}
+          >
             <p>
               <span aria-hidden="true">
                 {musica.nome}
