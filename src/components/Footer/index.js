@@ -9,7 +9,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   color: white;
-  font-family: sans-serif;
+  font-family: 'Press Start 2P', cursive;
 `;
 
 export default function Footer() {

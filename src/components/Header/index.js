@@ -3,14 +3,6 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const Container = styled.div`
-
-@font-face {
-  font-family: "slkscrb";
-  src: url('/font/slkscr-webfont.woff') format("woff");
-  font-style: normal;
-  font-weight: 100;
-}
-
   height: 160px;
   background: #222;
   display: flex;
@@ -18,7 +10,7 @@ const Container = styled.div`
   align-items: center;
   justify-content: space-around;
   color: #f2923c;
-  font-family: 'slkscrb';
+  font-family: 'Press Start 2P', cursive;
   font-weight: 100;
   
   .menu-options{
@@ -32,10 +24,10 @@ const Container = styled.div`
     }
 
     li{
-      font-size: 2rem;
+      font-size: 1rem;
       margin: 30px;
       color: #f2923c;
-      font-family: 'slkscrb';
+      font-family: 'Press Start 2P', cursive;
       font-weight: 100;
       text-decoration: none;
       list-style: none;
@@ -44,7 +36,7 @@ const Container = styled.div`
 
   .glitch {
     cursor: pointer;
-    font-size: 7rem;
+    font-size: 4rem;
     font-weight: 700;
     text-transform: uppercase;
     position: relative;

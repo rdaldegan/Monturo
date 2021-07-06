@@ -1,6 +1,6 @@
 /* eslint-disable react/no-array-index-key */
 import styled from 'styled-components';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 
 import { FaRedoAlt } from 'react-icons/fa';
 
@@ -48,11 +48,11 @@ const Musica = styled.div`
   top: ${(props) => props.y}vh;
   left: ${(props) => props.x}vw;
 
-  font-size: 1.4rem;
+  font-size: 1.1rem;
   border-radius: 25px;
   padding: 0 15px;
   margin: 0;
-  font-family: 'slkscrb';
+  font-family: 'Press Start 2P', cursive;
   font-weight: 100;
 
   text-transform: uppercase;
@@ -104,12 +104,16 @@ const Musica = styled.div`
 
   :hover{
     z-index: 100;
-    transform: scale(1.1);
-    transition: 0.3s;
+    transform: scale(1.02);
+    transition: 0.1s;
     
     ::before{
       background-color: #f2923c;
     }
+  }
+  :active{
+    transform: scale(1);
+    transition: 0.1s;
   }
 `;
 
@@ -136,8 +140,8 @@ export default function Home() {
 
   function playSong(musica) {
     setIsPlaying(true);
-    setIsOpen(true);
     setMusicaAtual(musica);
+    setIsOpen(true);
   }
 
   useEffect(() => {

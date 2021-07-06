@@ -8,7 +8,7 @@ const musicList = [
   },
   {
     id: 2,
-    url: '/moleca.mp3',
+    url: '/fuifiel.mp3',
     nome: 'Tapera monturo',
   },
   {
@@ -44,7 +44,8 @@ export default function SongsProvider({ children }) {
   const [musicas, setMusicas] = useState(musicList);
   const [musicaAtual, setMusicaAtual] = useState(musicas[0]);
   const [isPlaying, setIsPlaying] = useState(false);
-  const [isOpen, setIsOpen] = useState(true);
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <SongContext.Provider value={{
       musicas,
