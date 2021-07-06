@@ -157,7 +157,7 @@ const Container = styled.div`
     .volume::before {
       content: '';
       height: 7px;
-      width: 40px;
+      width: ${(props) => props.volume};
       border-top-left-radius: 10px;
       border-bottom-left-radius: 10px;
       position: absolute;
@@ -222,6 +222,7 @@ export default function Player() {
 
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
+  const [currentVolme, setCurrentVolume] = useState(50);
 
   const {
     musicas,
@@ -268,12 +269,15 @@ export default function Player() {
   }
 
   return (
-    <Container display={isOpen ? 'grid' : 'none'} durationProgress={`${(currentTime / duration) * 100}%`}>
+    <Container display={isOpen ? 'grid' : 'none'} durationProgress={`${(currentTime / duration) * 100}%`} volume={`${currentVolme}%`}>
       <audio
         ref={player}
         src={musicaAtual.url}
         preload="metadata"
-        onLoadedMetadata={(e) => setDuration(e.target.duration)}
+        onLoadedMetadata={(e) => {
+          setDuration(e.target.duration);
+          player.current.volume = (currentVolme / 100);
+        }}
       />
       <div className="group">
         <button
@@ -327,7 +331,16 @@ export default function Player() {
       </div>
       <div className="group">
         <span><IoVolumeLow className="icon" /></span>
-        <input className="volume" type="range" defaultValue="0" />
+        <input
+          className="volume"
+          type="range"
+          max="100"
+          value={currentVolme}
+          onChange={(e) => {
+            player.current.volume = e.target.value / 100;
+            setCurrentVolume(e.target.value);
+          }}
+        />
         <span><IoVolumeHigh className="icon" /></span>
       </div>
       <div className="group lastGroup">
