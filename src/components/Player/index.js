@@ -335,7 +335,7 @@ export default function Player() {
           type="button"
           onClick={() => {
             setIsOpen(false);
-            player.current.stop();
+            player.current.pause();
           }}
         >
           <IoClose className="button-icon" />
