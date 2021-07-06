@@ -18,7 +18,8 @@ const Container = styled.div`
   height: 60px;
   width: 100%;
   grid-template-columns: 6fr 10fr 2fr 1fr;
-
+  font-family: 'Press Start 2P', cursive;
+  font-size: 12px;
   button{
     background: none;
     border: none;
@@ -37,6 +38,10 @@ const Container = styled.div`
   .icon{
     font-size: 25px;
     color: #222222;
+  }
+
+  .songTitle{
+    margin: auto;
   }
 
   .group{
@@ -217,8 +222,8 @@ const Container = styled.div`
 
 export default function Player() {
   const player = useRef();
-  const durationInput = useRef();
-  const animation = useRef();
+  const durationInput = useRef(null);
+  const animation = useRef(null);
 
   const [duration, setDuration] = useState(0);
   const [currentTime, setCurrentTime] = useState(0);
@@ -237,7 +242,15 @@ export default function Player() {
   const whilePlaying = () => {
     durationInput.current.value = player.current.currentTime;
     setCurrentTime(durationInput.current.value);
-    requestAnimationFrame(whilePlaying);
+    if (player.current.currentTime !== player.current.duration) {
+      if (!player.current.paused) {
+        requestAnimationFrame(whilePlaying);
+      }
+    } else if (musicaAtual.id < musicas.length) {
+      setMusicaAtual(musicas[musicaAtual.id]);
+    } else {
+      setMusicaAtual(musicas[0]);
+    }
   };
 
   useEffect(() => {
@@ -245,6 +258,8 @@ export default function Player() {
       player.current.load();
       player.current.play();
       animation.current = requestAnimationFrame(whilePlaying);
+    } else {
+      player.current.pause();
     }
   }, [musicaAtual]);
 
@@ -256,7 +271,7 @@ export default function Player() {
       animation.current = requestAnimationFrame(whilePlaying);
     } else {
       player.current.pause();
-      cancelAnimationFrame(animation.current);
+      setIsPlaying(false);
     }
   }
 
@@ -283,7 +298,6 @@ export default function Player() {
         <button
           type="button"
           onClick={() => {
-            player.current.pause();
             if (musicaAtual.id > 1) {
               setMusicaAtual(musicas[musicaAtual.id - 2]);
             } else {
@@ -302,7 +316,6 @@ export default function Player() {
         <button
           type="button"
           onClick={() => {
-            player.current.pause();
             if (musicaAtual.id < musicas.length) {
               setMusicaAtual(musicas[musicaAtual.id]);
             } else {
@@ -312,7 +325,7 @@ export default function Player() {
         >
           <IoPlaySkipForward className="button-icon" />
         </button>
-        <p>{musicaAtual.nome}</p>
+        <p className="songTitle">{musicaAtual.nome}</p>
       </div>
       <div className="group">
         <span>{(currentTime && !Number.isNaN(currentTime)) ? convertTime(currentTime) : '00:00'}</span>
@@ -347,8 +360,9 @@ export default function Player() {
         <button
           type="button"
           onClick={() => {
-            setIsOpen(false);
             player.current.pause();
+            setIsOpen(false);
+            setIsPlaying(false);
           }}
         >
           <IoClose className="button-icon" />

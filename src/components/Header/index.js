@@ -18,10 +18,6 @@ const Container = styled.div`
     flex-direction: row;
     align-items: center;
     justify-content: space-around;
-    :hover{
-      transform: scale(1.1);
-      transition: 0.3s;
-    }
 
     li{
       font-size: 1rem;
@@ -31,6 +27,13 @@ const Container = styled.div`
       font-weight: 100;
       text-decoration: none;
       list-style: none;
+      transition: 0.1s;
+      :hover{
+        transform: scale(1.1);
+      }
+      :active{
+        transform: scale(1);
+      }
     }
   }
 
@@ -46,8 +49,6 @@ const Container = styled.div`
     -khtml-user-select: none;
     -moz-user-select: none;
     -ms-user-select: none;
-
-    text-shadow: 0.05em 0 0 #f2923c;
   }
 
   .glitch span {
@@ -59,13 +60,11 @@ const Container = styled.div`
   .glitch span:first-child {
     clip-path: polygon(0 0, 100% 0, 100% 75%, 0 45%);
     transform: translate(-0.045em, -0.0425em);
-    opacity: 0.8;
   }
 
   .glitch span:last-child {
-    clip-path: polygon(0 80%, 100% 20%, 100% 100%, 0 100%);
-    transform: translate(0.0425em, 0.045em);
-    opacity: 0.8;
+    clip-path: polygon(0 60%, 100% 20%, 100% 100%, 0 100%);
+    transform: translate(0.045em, 0.025em);
   }
 
 `;

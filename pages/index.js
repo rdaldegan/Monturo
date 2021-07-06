@@ -48,12 +48,13 @@ const Musica = styled.div`
   top: ${(props) => props.y}vh;
   left: ${(props) => props.x}vw;
 
-  font-size: 1.1rem;
+  font-size: 0.8rem;
+  max-width: 20vw;
+  max-height: 5vh;
   border-radius: 25px;
   padding: 0 15px;
   margin: 0;
   font-family: 'Press Start 2P', cursive;
-  font-weight: 100;
 
   text-transform: uppercase;
 
@@ -129,11 +130,29 @@ export default function Home() {
   function randomize() {
     const mus = [...musicas];
     for (let i = 0; i < musicas.length; i += 1) {
-      mus[i] = {
-        ...mus[i],
-        x: Math.random() * (70 - 10) + 10,
-        y: Math.random() * (70 - 10) + 10,
-      };
+      let fit = false;
+      let counter = 0;
+      while (!fit) {
+        counter += 1;
+        let hit = false;
+        const x = Math.random() * (70 - 10) + 10;
+        const y = Math.random() * (70 - 10) + 10;
+        for (let j = 0; j < i; j += 1) {
+          const hitX = Math.abs(mus[j].x - x) < 25;
+          const hitY = Math.abs(mus[j].y - y) < 8;
+          if (hitX && hitY && counter < 40) {
+            hit = true;
+          }
+        }
+        if (!hit) {
+          fit = true;
+          mus[i] = {
+            ...mus[i],
+            x,
+            y,
+          };
+        }
+      }
     }
     setMusicas(mus);
   }
