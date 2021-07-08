@@ -27,6 +27,24 @@ export default function App({ Component, pageProps }) {
   return (
     <>
       <Head>
+        <title>Coletivo Monturo</title>
+        <link rel="icon" href="/logo.svg" />
+        <meta name="title" content="Coletivo monturo" />
+        <meta name="description" content="A poesia do lixo" />
+
+        <meta property="og:type" content="website" />
+        <meta property="og:url" content="https://coletivo-three.vercel.app/" />
+        <meta property="og:title" content="Coletivo monturo" />
+        <meta property="og:description" content="A poesia do lixo" />
+        <meta property="og:image" content="/logo.svg" />
+
+        <meta property="twitter:card" content="summary_large_image" />
+        <meta property="twitter:url" content="https://coletivo-three.vercel.app/" />
+        <meta property="twitter:title" content="Coletivo monturo" />
+        <meta property="twitter:description" content="A poesia do lixo" />
+        <meta property="twitter:image" content="/logo.svg" />
+
+
         <link rel="preconnect" href="https://fonts.googleapis.com" />
         <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
         <link href="https://fonts.googleapis.com/css2?family=Press+Start+2P&display=swap" rel="stylesheet" />
