@@ -10,6 +10,8 @@ import { useSongs } from '../../context/SongContext';
 const Container = styled.div`
   display: ${(props) => props.display};
 
+  font-size: 62.5%;
+
   position: fixed;
   bottom: 0;
 
@@ -41,7 +43,9 @@ const Container = styled.div`
   }
 
   .songTitle{
-    margin: auto;
+    white-space: nowrap;
+    overflow: hidden !important;
+    text-overflow: ellipsis;
   }
 
   .group{
@@ -49,6 +53,7 @@ const Container = styled.div`
     display: flex;
     flex: row;
     align-items: center;
+    overflow: hidden !important;
 
     .duration, .volume{
       width: 100%;
@@ -216,8 +221,35 @@ const Container = styled.div`
   }
 
   .lastGroup{
+    min-width: 30px;
     margin-left: auto;
+    grid-column-start: 4;
+    grid-column-end: 5;
   }
+
+  @media (max-width: 1200px){
+    .volumeGroup {
+      background-color: red;
+      display: none;
+    }
+    .durationGroup {
+      grid-column-start: 2;
+      grid-column-end: 4;
+    }
+  } 
+  @media (max-width: 768px){
+    .durationGroup {
+      display: none;
+    }
+    .volumeGroup {
+      grid-column-start: 3;
+      grid-column-end: 5;
+    }
+    .firstGroup{
+      grid-column-start: 1;
+      grid-column-end: 3;
+    }
+  } 
 `;
 
 export default function Player() {
@@ -294,7 +326,7 @@ export default function Player() {
           player.current.volume = (currentVolme / 100);
         }}
       />
-      <div className="group">
+      <div className="group firstGroup">
         <button
           type="button"
           onClick={() => {
@@ -325,9 +357,9 @@ export default function Player() {
         >
           <IoPlaySkipForward className="button-icon" />
         </button>
-        <p className="songTitle">{musicaAtual.nome}</p>
+        <p className="songTitle ">{musicaAtual.nome}</p>
       </div>
-      <div className="group">
+      <div className="group durationGroup">
         <span>{(currentTime && !Number.isNaN(currentTime)) ? convertTime(currentTime) : '00:00'}</span>
         <input
           ref={durationInput}
@@ -342,7 +374,7 @@ export default function Player() {
         />
         <span>{(duration && !Number.isNaN(duration)) ? convertTime(duration) : '00:00'}</span>
       </div>
-      <div className="group">
+      <div className="group volumeGroup">
         <span><IoVolumeLow className="icon" /></span>
         <input
           className="volume"
