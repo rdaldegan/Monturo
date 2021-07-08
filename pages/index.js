@@ -7,6 +7,7 @@ import { FaRedoAlt } from 'react-icons/fa';
 import { useSongs } from '../src/context/SongContext';
 
 const Container = styled.div`
+  font-size: 90%;
   overflow: hidden;
   position: relative;
   background-image: url('/alice-pasqual-evvaSEv1QIE-unsplash.jpg');
@@ -15,6 +16,17 @@ const Container = styled.div`
   background-size: cover;
   background-position-y: center;
   min-height: 100vh;
+
+   
+  @media (max-width: 1440px) {
+    font-size: 62.5%;
+  }
+  @media (max-width: 450px) {
+    font-size: 50%;
+  }
+  @media (max-width: 375px) {
+    font-size: 45%;
+  }
 `;
 
 const Bg = styled.div`
@@ -30,7 +42,7 @@ const Bg = styled.div`
     margin: 5px;
 
     .icon{
-      font-size: 30px;
+      font-size: 2em;
       color: #a4715a;
       cursor: pointer;
       
@@ -48,9 +60,10 @@ const Musica = styled.div`
   top: ${(props) => props.y}vh;
   left: ${(props) => props.x}vw;
 
-  font-size: 0.8rem;
+  font-size: 1em;
+  line-height: 2em;
   max-width: 20vw;
-  max-height: 5vh;
+  max-height: 10vh;
   border-radius: 25px;
   padding: 0 15px;
   margin: 0;
@@ -139,8 +152,8 @@ export default function Home() {
         const y = Math.random() * (70 - 10) + 10;
         for (let j = 0; j < i; j += 1) {
           const hitX = Math.abs(mus[j].x - x) < 25;
-          const hitY = Math.abs(mus[j].y - y) < 8;
-          if (hitX && hitY && counter < 40) {
+          const hitY = Math.abs(mus[j].y - y) < 12;
+          if (hitX && hitY && counter < 100) {
             hit = true;
           }
         }

@@ -3,6 +3,9 @@ import styled from 'styled-components';
 import Link from 'next/link';
 
 const Container = styled.div`
+  overflow: hidden;
+  font-size: 62.5%;
+  width: 100%;
   height: 160px;
   background: #222;
   display: flex;
@@ -12,6 +15,32 @@ const Container = styled.div`
   color: #f2923c;
   font-family: 'Press Start 2P', cursive;
   font-weight: 100;
+
+  hr{
+    display: none;
+  }
+
+  @media (max-width: 768px) {
+    font-size: 40%;
+  }
+  @media (max-width: 550px) {
+    font-size: 40%;
+    flex-direction: column;
+    hr {
+      display: block;
+      width: 100vw;
+      border: 1px solid #f2923c;
+    }
+  }
+  @media (max-width: 310px) {
+    font-size: 30%;
+    flex-direction: column;
+    hr {
+      display: block;
+      width: 100vw;
+      border: 1px solid #f2923c;
+    }
+  }
   
   .menu-options{
     display: flex;
@@ -20,7 +49,7 @@ const Container = styled.div`
     justify-content: space-around;
 
     li{
-      font-size: 1rem;
+      font-size: 2em;
       margin: 30px;
       color: #f2923c;
       font-family: 'Press Start 2P', cursive;
@@ -39,7 +68,7 @@ const Container = styled.div`
 
   .glitch {
     cursor: pointer;
-    font-size: 4rem;
+    font-size: 6em;
     font-weight: 700;
     text-transform: uppercase;
     position: relative;
@@ -79,6 +108,7 @@ export default function Header() {
           <span aria-hidden="true">Monturo</span>
         </h1>
       </Link>
+      <hr />
       <div className="menu-options">
         <Link href="/coletivo">
           <li className="glitch">
