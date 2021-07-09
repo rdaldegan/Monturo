@@ -52,6 +52,10 @@ const Bg = styled.div`
       }
       p{
         text-align: left;
+      }             
+    @media (max-width: 590px) {
+      p{
+        font-size: 1.4em;
       }
     } 
   }
