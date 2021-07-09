@@ -4,4 +4,4 @@ O coletivo monturo propõe explorar potencialidades criativas do tensionamento, 
 O coletivo monturo se utiliza da decomposição em ruínas e destilação de sucatas.
 O coletivo monturo é formado por Isaías Barbosa e Nathanael Martins.
 
-[`<App>`](https://coletivo-three.vercel.app/)
+[`Site`](https://coletivo-three.vercel.app/)
