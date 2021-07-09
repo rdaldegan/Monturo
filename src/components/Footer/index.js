@@ -88,7 +88,7 @@ export default function Footer() {
         <span>coletivomonturo@gmail.com</span>
       </div>
       <div className="proac">
-        <img src="/logo.svg" alt="proac" />
+        <img src="/logo/logo.jpeg" alt="proac" />
       </div>
     </Container>
   );
