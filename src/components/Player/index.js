@@ -287,6 +287,7 @@ export default function Player() {
 
   useEffect(() => {
     if (isPlaying) {
+      player.current.pause();
       player.current.load();
       player.current.play();
       animation.current = requestAnimationFrame(whilePlaying);
