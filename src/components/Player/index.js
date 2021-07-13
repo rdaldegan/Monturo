@@ -286,13 +286,11 @@ export default function Player() {
   };
 
   useEffect(() => {
+    player.current.pause();
     if (isPlaying) {
-      player.current.pause();
       player.current.load();
       player.current.play();
       animation.current = requestAnimationFrame(whilePlaying);
-    } else {
-      player.current.pause();
     }
   }, [musicaAtual]);
 
@@ -300,6 +298,7 @@ export default function Player() {
     const play = !isPlaying;
     setIsPlaying(!isPlaying);
     if (play) {
+      player.current.pause();
       player.current.play();
       animation.current = requestAnimationFrame(whilePlaying);
     } else {

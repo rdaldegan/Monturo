@@ -80,11 +80,11 @@ export default function Footer() {
         <h2>Fale conosco</h2>
       </div>
       <div className="element">
-        <img src="/ig-icon.png" alt="instagram" />
+        <img src="/media/ig-icon.png" alt="instagram" />
         <span>@coletivo_monturo</span>
       </div>
       <div className="element">
-        <img src="/email-icon.png" alt="email" />
+        <img src="/media/email-icon.png" alt="email" />
         <span>coletivomonturo@gmail.com</span>
       </div>
       <div className="proac">

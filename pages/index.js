@@ -10,11 +10,6 @@ const Container = styled.div`
   font-size: 90%;
   overflow: hidden;
   position: relative;
-  background-image: url('/alice-pasqual-evvaSEv1QIE-unsplash.jpg');
-  background-attachment: fixed;
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position-y: center;
   min-height: 100vh;
 
    
@@ -26,6 +21,16 @@ const Container = styled.div`
   }
   @media (max-width: 375px) {
     font-size: 45%;
+  }
+
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    pointer-events: none;
   }
 `;
 
@@ -182,6 +187,9 @@ export default function Home() {
 
   return (
     <Container>
+      <video autoPlay muted loop>
+        <source src="/videos/nathi.mp4" type="video/mp4"  />
+      </video>
       <Bg>
         <button
           type="button"
