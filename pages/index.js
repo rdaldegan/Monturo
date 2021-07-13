@@ -45,6 +45,7 @@ const Bg = styled.div`
     background: none;
     border: none;
     margin: 5px;
+    z-index: 200;
 
     .icon{
       font-size: 2em;
@@ -89,7 +90,7 @@ const Musica = styled.div`
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background-color: #a4715a;
+    background-color: rgba(164, 113, 90, 0.8);
   }  
   ::after{
     content: '';
@@ -98,7 +99,7 @@ const Musica = styled.div`
     left: -2px;
     right: -2px;
     bottom: -2px;
-    background-color: #a4715a;
+    background-color: rgba(164, 113, 90, 1);
     filter: blur(40px);
   }
 
