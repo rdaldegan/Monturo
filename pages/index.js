@@ -188,7 +188,7 @@ export default function Home() {
   return (
     <Container>
       <video autoPlay muted loop>
-        <source src="/videos/nathi.mp4" type="video/mp4"  />
+        <source src="/videos/nathi.mp4" type="video/mp4" />
       </video>
       <Bg>
         <button
