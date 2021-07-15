@@ -31,6 +31,7 @@ const Container = styled.div`
     height: 100%;
     object-fit: cover;
     pointer-events: none;
+    z-index: -1;
   }
 `;
 
@@ -38,7 +39,7 @@ const Bg = styled.div`
   overflow: hidden;
   width: 100%;
   min-height: 100vh;
-  background-color: rgba(0, 0, 0, 0.75);
+  background-color: rgba(0, 0, 0, 0.5);
 
 
   .reRandom{
