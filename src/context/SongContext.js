@@ -3,37 +3,37 @@ import React, { createContext, useContext, useState } from 'react';
 const musicList = [
   {
     id: 1,
-    url: '/musicas/tapera jardimcorrégo mix_v2.wav',
+    url: '/musicas/tapera jardimcorrego v3.wav',
     nome: 'Tapera córrego',
   },
   {
     id: 2,
-    url: '/musicas/tapera monturo mixv4.wav',
+    url: '/musicas/tapera monturo v3.wav',
     nome: 'Tapera monturo',
   },
   {
     id: 3,
-    url: '/musicas/tapera funk_mix v009 Copy.wav',
+    url: '/musicas/tapera funk v3.wav',
     nome: 'Tapera funk',
   },
   {
     id: 4,
-    url: '/musicas/tapera 7 - um barato fundamental V6.wav',
+    url: '/musicas/tapera barato fundamental v3.wav',
     nome: 'Tapera barato fundamental',
   },
-  {
+  /* {
     id: 5,
     url: '/musicas/Arpejadores_MASTER_24.03.2021.wav',
     nome: 'Tapera arpejadores',
-  },
+  }, */
   {
     id: 6,
-    url: '/musicas/tudo foi feito pra gente lacrar remix v7.wav',
+    url: '/musicas/tudo foi feito pra gente lacrar v3.wav',
     nome: 'Tudo foi feito pra gnt lacrar remix',
   },
   {
     id: 7,
-    url: '/musicas/vozes_mix_v003.wav',
+    url: '/musicas/tapera voz v3.wav',
     nome: 'Tapera voz',
   },
 ];

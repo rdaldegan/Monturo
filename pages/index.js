@@ -138,6 +138,13 @@ const Musica = styled.div`
   }
 `;
 
+const Credits = styled.h5`
+  color: white;
+  position: absolute;
+  bottom: -15px;
+  right: 5px;
+`;
+
 export default function Home() {
   const {
     musicas,
@@ -220,6 +227,7 @@ export default function Home() {
             </p>
           </Musica>
         ))}
+        <Credits>Arte de fundo por Caró Brandão</Credits>
       </Bg>
     </Container>
   );
